@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-2-JavaScript</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <h1>E2 - JavaScript</h1>
+  </head>
+  <body>
+    <main>
+      <div class="intro-container">
+        <h1>Buscador de pizzas</h1>
+        <img src="./assets/pizza-1.png" alt="logo-pizza" />
+        <form id="form" class="form" action=""></form>
+        <input type="number" placeholder="Ingrese un número" id="input" />
+        <input id="submit" type="submit" value="Buscar" />
+      </div>
+
+      <div id="container" class="pizza-container">
+        <div>
+          <h2 class="titulo-pizza">Pizza n</h2>
+          <h3 class="precio">$000</h3>
+        </div>
+        <div>
+          <img src="./assets/pizza-2.png" alt="pizza-img" />
+        </div>
+      </div>
+    </main>
+
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
