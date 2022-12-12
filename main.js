@@ -1,15 +1,4 @@
-// Vamos a utilizar el mismo array de objetos "Pizzas🍕" del desafío general anterior. 
-
-// 👉 Crear un archivo HTML con un input de tipo number, un botón y un contenedor en el cual renderizar el resultado de la búsqueda. 
-
-// 👉 El desafío será, al tocar el botón, capturar el valor ingresado en el input.
-// 👉 Renderizar en el contenedor un h2 con el nombre y en un h3 con el precio de la pizza cuyo id coincida con el numero ingresado en el input. 
-
-// 🚨 Si el número ingresado no coincide con ningún id, renderizar (no sirve un alert) un mensaje de error en el contenedor. 
-// 🚨 Si no se ingresa un número, renderizar (no sirve un alert) un mensaje de error diferente en el contenedor. 
-// 🚨 Solo debe renderizarse una única cosa , ya sea la nueva pizza, o el nuevo mensaje de error. El resto se debe pisar.
-
-const Pizzas = [
+const pizzas = [
     {
         id: 1,
         nombre: "Pizza Margarita",
@@ -46,4 +35,53 @@ const Pizzas = [
         ingredientes: [ "Prepizza","Salsa Roja", "Anana", "Mozzarella","Cerezas", "Jamón","Aceitunas"],
         precio: 650,
     }
-]
+];
+
+const numberInput = document.getElementById("number-input");
+const submitInput = document.getElementById("submit-number");
+const form = document.getElementById("form");
+const container = document.getElementById("container");
+
+const searchPizza = () => {
+    const numberValue = numberInput.value.trim();
+  
+    const findPizzas = pizzas.find((pizza) => {
+        return pizza.id == numberValue;
+      });
+      if (isEmpty(numberValue)) {
+        container.classList.add("hidden");
+        showError(numberInput, "Es necesaario que ingreses algún número.");
+      } else if (!findPizzas) {
+        container.classList.add("hidden");
+        showError(numberInput, "Tiene que ser un número entre 1 y 6.");
+      } else if (findPizzas) {
+        removeError(numberInput);
+        container.classList.remove("hidden");
+        container.innerHTML = `<div>
+        <h2 class="titulo-pizza">${findPizzas.nombre}</h2>
+        <h3 class="precio">$${findPizzas.precio}</h3>
+      </div>`;
+      }
+    };
+
+const isEmpty = (value) => !value.length;
+
+const showError = (input, message) => {
+  const div = input.parentElement;
+  div.classList.add("error");
+  const error = div.querySelector("small");
+  error.textContent = message;
+};
+
+const removeError = (input) => {
+  const div = input.parentElement;
+  div.classList.remove("error");
+  const error = div.querySelector("small");
+  error.textContent = "";
+};
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  searchPizza();
+});
