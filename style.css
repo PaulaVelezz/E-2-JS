@@ -65,8 +65,7 @@ main {
 
 .pizza-container {
     background:#0f0f0f;
-    width: 400px;
-    height: 150px;
+    padding: 20px 50px;
     border-radius: 15px;
     display: flex;
     color:rgb(235, 230, 230);
@@ -85,12 +84,22 @@ main {
     display: none;
 }
 
+.small {
+    color: rgb(235, 230, 230);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 footer{
     display: flex;
     align-items: center;
     justify-content: center;
     color:rgb(235, 230, 230);
-    padding: 10px;
+    padding: 5px;
+    margin-top: 10px;
 }
 
 footer a {

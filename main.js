@@ -51,10 +51,12 @@ const searchPizza = () => {
       if (isEmpty(numberValue)) {
         container.classList.add("hidden");
         showError(numberInput, "Es necesaario que ingreses algún número.");
-      } else if (!findPizzas) {
+      } else 
+      if (!findPizzas) {
         container.classList.add("hidden");
         showError(numberInput, "Tiene que ser un número entre 1 y 6.");
-      } else if (findPizzas) {
+      } else 
+      if (findPizzas) {
         removeError(numberInput);
         container.classList.remove("hidden");
         container.innerHTML = `<div>
@@ -62,7 +64,7 @@ const searchPizza = () => {
         <h3 class="precio">$${findPizzas.precio}</h3>
       </div>`;
       }
-    };
+};
 
 const isEmpty = (value) => !value.length;
 
